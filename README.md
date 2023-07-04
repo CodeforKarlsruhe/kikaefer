@@ -1,0 +1,2 @@
+# kikaefer
+Insect detection demo

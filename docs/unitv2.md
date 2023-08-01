@@ -368,7 +368,9 @@ creates *libtensorflow-lite*
 
 
 ## Compiled Buildroot binaries
+With cross development tools fro Linux x86_64 (Fedora 37) available at [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/b5ZizSMweZxsjPa)
 
-Available at [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/b5ZizSMweZxsjPa)
 
+## Compiled target folder
 
+All libraries ready to copy to /media/sdcard/install available from [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/4zQpnSLpgHnP39H)

@@ -211,5 +211,32 @@ YoloV4 with *tiny* paramters from *darknet* dnn model. processing time ~5s
   * See also [https://github.com/pjreddie/darknet/issues/2201](https://github.com/pjreddie/darknet/issues/2201)
 
 
+**Framework**
+
+Make sure to have GUI functions disabled in the source code.
+
+
+**TFlite**
+Assume tensorflow checked out into subdir tf_src
+
+Build like: 
+> mkdir -p tflite_arm/build
+> 
+> cd tflite_arm/build
+> 
+> cmake -DCMAKE_TOOLCHAIN_FILE=../armTools.cmake -DCMAKE_INSTALL_PREFIX=`pwd`/out ../../tf_src/tensorflow/lite
+>
+> make -j8
+> 
+> make install
+>
+
+creates *libtensorflow-lite*
+
+
+
+## Compiled Buildroot binaries
+
+Available at [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/b5ZizSMweZxsjPa)
 
 

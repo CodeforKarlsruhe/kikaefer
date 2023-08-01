@@ -1,12 +1,122 @@
 # UnitV2
 
+## Access to UnitV2 via network
+
+Either via LAN over USB or via WiFi access point like M5UV2_xxxx
+
+Note, neither wired not wireless interfaces provide internet access, so make sure that connection is not used as a default connection on your machine.
+
+Both are bridged to the same IP address: addr:10.254.239.1
+
+Open browser at http://addr:10.254.239.1 (no HTTPS).
+
+Starts in **DEMO** mode, can switch to **Notebook** mode.
+
+
+
+
 ## Login
 
 user: m5stack
 
 pwd: 12345678
 
+or
+
+user: root
+
+pwd: 7d219bec161177ba75689e71edc1835422b87be17bf92c3ff527b35052bf7d1f
+
+
 > ssh m5stack@10.254.239.1
+
+**SSH failures**
+
+Probably incorrect settings on unitv2 prevents direct login via ssh. 
+Fix:
+
+ * Open browser on http://10.254.239.1  
+ * Switch to notebook mode (reload required)
+ * Open new terminal (new -> terminal)
+ * edit /etc/sshd_config
+   * Set MaxAuthTries to specific value (e.g. 10)
+ * Kill and restart sshd 
+
+
+## WiFi setup
+
+By default, one of the two WiFi networks is used to provide an access point. The second one can be used to connect as a client in order to access internet.
+
+  * Edit /etc/wpa_supplicant and add a fixed external SSID like so:
+
+```
+ctrl_interface=/var/run/wpa_supplicant
+eapol_version=1
+ap_scan=1
+fast_reauth=1
+
+# new
+network={
+    ssid="karlsruhe.freifunk.net"
+    key_mgmt=NONE
+}
+
+
+```
+
+Stop wpa client
+> unitv2% sudo start-stop-daemon -n wpa_supplicant -K
+> 
+
+Restart wpa client
+> sudo start-stop-daemon  -b -x /usr/sbin/wpa_supplicant -S -- -B -Dnl80211 -iwlan0 -c /etc/wpa_supplicant.conf
+
+
+## Preparations and caveats
+
+Prior to using the new programs, adjust the following settings, assuming the new buildroot target stuff  
+has been copied to /media/sdcard/install/cross, 
+so libraries are placed at /media/sdcard/install/cross/usr/lib/
+
+> export LD_LIBRARY_PATH=/media/sdcard/install/cross/usr/lib:/lib:/usr/lib
+
+Edit /etc/group to add m5stack to groups video and audio
+> unitv2% grep m5stack /etc/group 
+> 
+> ...
+> 
+> video:x:28:m5stack
+> 
+> audio:x:29:m5stack
+> 
+> ...
+
+
+
+
+Change group of /dev/video to video
+
+> sudo chgrp video /dev/video0  
+
+
+### Check memory
+
+Most probably you have to kill the jupyter server before running larger models.
+
+If not enough memory, zsh will kill your program. Check /var/log/messages for something like:
+
+```
+Aug  1 17:16:33 unitv2 user.err kernel: Out of memory: Kill process 1637 (yolo4ocv
+_arm) score 547 or sacrifice child
+Aug  1 17:16:33 unitv2 user.err kernel: Killed process 1637 (yolo4ocv_arm) total-v
+m:95556kB, anon-rss:65732kB, file-rss:0kB, shmem-rss:0kB
+
+```
+
+### Permissions
+You might need to sudo in order to run applications on SD-card. It is mounted as root with no write access for others - chmod and chown don't work on FAT filesystem.
+
+
 
 ## Directory structure
 
@@ -24,7 +134,7 @@ server.py                  uploads
 unitv2% 
 ```
 
-### New apps
+
 
 ```
 unitv2% ls ml 

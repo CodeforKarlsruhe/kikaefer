@@ -107,9 +107,9 @@ Edit /etc/group to add m5stack to groups video and audio
 > 
 > ...
 > 
-> video:x:28:m5stack
+> video\:x\:28\:m5stack
 > 
-> audio:x:29:m5stack
+> audio\:x\:29\:m5stack
 > 
 > ...
 

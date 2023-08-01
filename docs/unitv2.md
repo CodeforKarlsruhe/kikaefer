@@ -12,12 +12,14 @@ Open browser at http://addr:10.254.239.1 (no HTTPS).
 
 Starts in **DEMO** mode
 
-![](docs/imgs/scaled/stream.png)
+![](https://github.com/CodeforKarlsruhe/kikaefer/blob/a9441c28698eb4b5be98f55a78b77213772464e9/docs/imgs/scaled/stream.png)
 
 
 can switch to **Notebook** mode.
 
-![](docs/imgs/scaled/switch-to-notebook.png)
+![](https://github.com/CodeforKarlsruhe/kikaefer/blob/d7aaf98730fad695fb3e89d0e5c3d076e5b8cad7/docs/imgs/scaled/switch-to-notbook.png)
+
+![](https://github.com/CodeforKarlsruhe/kikaefer/blob/d7aaf98730fad695fb3e89d0e5c3d076e5b8cad7/docs/imgs/scaled/notebook.png)
 
 
 
@@ -27,6 +29,8 @@ Demos:
 
 ![](https://github.com/CodeforKarlsruhe/kikaefer/blob/5bb7a786baa379265e1b5789e347ea19df025561/docs/imgs/scaled/face.png)
 
+  * Object detection
+![](https://github.com/CodeforKarlsruhe/kikaefer/blob/d7aaf98730fad695fb3e89d0e5c3d076e5b8cad7/docs/imgs/scaled/object.png)
 
 
 
@@ -54,6 +58,7 @@ Fix:
  * Open browser on http://10.254.239.1  
  * Switch to notebook mode (reload required)
  * Open new terminal (new -> terminal)
+   * ![](https://github.com/CodeforKarlsruhe/kikaefer/blob/d7aaf98730fad695fb3e89d0e5c3d076e5b8cad7/docs/imgs/scaled/unitv2-open-terminal.png)
  * edit /etc/sshd_config
    * Set MaxAuthTries to specific value (e.g. 10)
  * Kill and restart sshd 

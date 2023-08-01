@@ -1,4 +1,4 @@
-# UnitV2
+# UnitV2 Basics
 
 ## Access to UnitV2 via network
 
@@ -92,6 +92,20 @@ Stop wpa client
 
 Restart wpa client
 > sudo start-stop-daemon  -b -x /usr/sbin/wpa_supplicant -S -- -B -Dnl80211 -iwlan0 -c /etc/wpa_supplicant.conf
+
+
+# Development
+We have some of the stuff explained below availabale for download. But read on, befor you grab it ...
+
+## Compiled Buildroot binaries
+With cross development tools fro Linux x86_64 (Fedora 37) available at [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/b5ZizSMweZxsjPa)
+
+
+## Compiled target folder
+
+All libraries ready to copy to /media/sdcard/install available from [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/4zQpnSLpgHnP39H)
+
+
 
 
 ## Preparations and caveats
@@ -366,11 +380,3 @@ Build like:
 creates *libtensorflow-lite*
 
 
-
-## Compiled Buildroot binaries
-With cross development tools fro Linux x86_64 (Fedora 37) available at [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/b5ZizSMweZxsjPa)
-
-
-## Compiled target folder
-
-All libraries ready to copy to /media/sdcard/install available from [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/index.php/s/4zQpnSLpgHnP39H)

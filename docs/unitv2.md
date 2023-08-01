@@ -30,9 +30,10 @@ Demos:
 ![](https://github.com/CodeforKarlsruhe/kikaefer/blob/5bb7a786baa379265e1b5789e347ea19df025561/docs/imgs/scaled/face.png)
 
   * Object detection
+
 ![](https://github.com/CodeforKarlsruhe/kikaefer/blob/d7aaf98730fad695fb3e89d0e5c3d076e5b8cad7/docs/imgs/scaled/object.png)
 
-
+  * And others ...
 
 
 ## Login

@@ -12,6 +12,13 @@ Open browser at http://addr:10.254.239.1 (no HTTPS).
 
 Starts in **DEMO** mode, can switch to **Notebook** mode.
 
+Demos:
+
+  * Face detection
+
+![](https://github.com/CodeforKarlsruhe/kikaefer/blob/5bb7a786baa379265e1b5789e347ea19df025561/docs/imgs/scaled/face.png)
+
+
 
 
 

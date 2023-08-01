@@ -10,7 +10,16 @@ Both are bridged to the same IP address: addr:10.254.239.1
 
 Open browser at http://addr:10.254.239.1 (no HTTPS).
 
-Starts in **DEMO** mode, can switch to **Notebook** mode.
+Starts in **DEMO** mode
+
+![](docs/imgs/scaled/stream.png)
+
+
+can switch to **Notebook** mode.
+
+![](docs/imgs/scaled/switch-to-notebook.png)
+
+
 
 Demos:
 

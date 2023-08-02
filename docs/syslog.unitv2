@@ -1,0 +1,49 @@
+Aug  2 14:28:41 ubuntubox kernel: [167338.820150] usb 3-1.1: new high-speed USB device number 83 using xhci_hcd
+Aug  2 14:28:41 ubuntubox kernel: [167338.972360] usb 3-1.1: New USB device found, idVendor=0fe6, idProduct=9900, bcdDevice=20.00
+Aug  2 14:28:41 ubuntubox kernel: [167338.972366] usb 3-1.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Aug  2 14:28:41 ubuntubox kernel: [167338.972367] usb 3-1.1: Product: USB 10/100 LAN
+Aug  2 14:28:41 ubuntubox kernel: [167338.972369] usb 3-1.1: Manufacturer: CoreChips
+Aug  2 14:28:41 ubuntubox kernel: [167338.972370] usb 3-1.1: SerialNumber: 00E0992F9972
+Aug  2 14:28:40 ubuntubox wpa_supplicant[1536]: message repeated 20 times: [ wlp3s0: CTRL-EVENT-BEACON-LOSS ]
+Aug  2 14:28:41 ubuntubox NetworkManager[1822]: <info>  [1690979321.7975] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/29)
+Aug  2 14:28:41 ubuntubox kernel: [167339.029985] cdc_ether 3-1.1:2.0 eth0: register 'cdc_ether' at usb-0000:08:00.3-1.1, CDC Ethernet Device, 00:e0:99:2f:99:72
+Aug  2 14:28:41 ubuntubox mtp-probe: checking bus 3, device 83: "/sys/devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb3/3-1/3-1.1"
+Aug  2 14:28:41 ubuntubox mtp-probe: bus: 3, device: 83 was not an MTP device
+Aug  2 14:28:41 ubuntubox wpa_supplicant[1536]: wlp3s0: CTRL-EVENT-BEACON-LOSS 
+Aug  2 14:28:42 ubuntubox systemd-udevd[1187490]: Using default interface naming scheme 'v249'.
+Aug  2 14:28:42 ubuntubox kernel: [167339.557273] cdc_ether 3-1.1:2.0 enx00e0992f9972: renamed from eth0
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3592] device (eth0): interface index 17 renamed iface from 'eth0' to 'enx00e0992f9972'
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3634] device (enx00e0992f9972): state change: unmanaged -> unavailable (reason 'managed', sys-iface-state: 'external')
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3641] device (enx00e0992f9972): carrier: link connected
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3646] device (enx00e0992f9972): state change: unavailable -> disconnected (reason 'none', sys-iface-state: 'managed')
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3650] policy: auto-activating connection 'DHCP' (fa142b4b-40d5-4d1f-ac8d-33f9b4c40f97)
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3654] device (enx00e0992f9972): Activation: starting connection 'DHCP' (fa142b4b-40d5-4d1f-ac8d-33f9b4c40f97)
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3654] device (enx00e0992f9972): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3657] device (enx00e0992f9972): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3660] device (enx00e0992f9972): state change: config -> ip-config (reason 'none', sys-iface-state: 'managed')
+Aug  2 14:28:42 ubuntubox NetworkManager[1822]: <info>  [1690979322.3663] dhcp4 (enx00e0992f9972): activation: beginning transaction (timeout in 45 seconds)
+Aug  2 14:28:42 ubuntubox avahi-daemon[1498]: Joining mDNS multicast group on interface enx00e0992f9972.IPv6 with address fe80::b50d:c52d:64f:f347.
+Aug  2 14:28:42 ubuntubox avahi-daemon[1498]: New relevant interface enx00e0992f9972.IPv6 for mDNS.
+Aug  2 14:28:42 ubuntubox avahi-daemon[1498]: Registering new address record for fe80::b50d:c52d:64f:f347 on enx00e0992f9972.*.
+Aug  2 14:28:42 ubuntubox mtp-probe: checking bus 3, device 83: "/sys/devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb3/3-1/3-1.1"
+Aug  2 14:28:42 ubuntubox mtp-probe: bus: 3, device: 83 was not an MTP device
+Aug  2 14:28:44 ubuntubox ModemManager[1608]: <info>  [base-manager] couldn't check support for device '/sys/devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb3/3-1/3-1.1': not supported by any plugin
+Aug  2 14:28:48 ubuntubox NetworkManager[1822]: <info>  [1690979328.3897] device (enx00e0992f9972): state change: ip-config -> unavailable (reason 'carrier-changed', sys-iface-state: 'managed')
+Aug  2 14:28:48 ubuntubox NetworkManager[1822]: <info>  [1690979328.4230] dhcp4 (enx00e0992f9972): canceled DHCP transaction
+Aug  2 14:28:48 ubuntubox avahi-daemon[1498]: Withdrawing address record for fe80::b50d:c52d:64f:f347 on enx00e0992f9972.
+Aug  2 14:28:48 ubuntubox avahi-daemon[1498]: Leaving mDNS multicast group on interface enx00e0992f9972.IPv6 with address fe80::b50d:c52d:64f:f347.
+Aug  2 14:28:48 ubuntubox avahi-daemon[1498]: Interface enx00e0992f9972.IPv6 no longer relevant for mDNS.
+
+The device does have DHCP:
+
+dhclient -v enx00e0992f9972
+Listening on LPF/enx00e0992f9972/00:e0:99:2f:99:72
+Sending on   LPF/enx00e0992f9972/00:e0:99:2f:99:72
+Sending on   Socket/fallback
+DHCPDISCOVER on enx00e0992f9972 to 255.255.255.255 port 67 interval 3 (xid=0xbb0e4518)
+DHCPOFFER of 10.254.239.35 from 10.254.239.1
+DHCPREQUEST for 10.254.239.35 on enx00e0992f9972 to 255.255.255.255 port 67 (xid=0x18450ebb)
+DHCPACK of 10.254.239.35 from 10.254.239.1 (xid=0xbb0e4518)
+RTNETLINK answers: File exists
+bound to 10.254.239.35 -- renewal in 20841 seconds.
+

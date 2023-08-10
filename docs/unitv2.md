@@ -1,5 +1,11 @@
 # UnitV2 Basics
 
+## External projects
+[Object detection](https://www.hackster.io/naveenbskumar/object-detection-using-m5stack-unitv2-and-edge-impulse-650a2f)
+
+[Face mask detect](https://www.hackster.io/shahizat/tinyml-face-mask-detector-with-m5stack-core2-and-unitv2-0040be)
+
+
 ## Access to UnitV2 via network
 
 Either via LAN over USB or via WiFi access point like M5UV2_xxxx
@@ -380,3 +386,36 @@ Build like:
 creates *libtensorflow-lite*
 
 
+**Nanodet**
+
+Nanodet plus m416 works on desktop. Works on UnitV2 too, provided we 
+use "light_mode" in the extractor like so (nanodet.cpp):
+
+```
+std::vector<BoxInfo> NanoDet::detect(cv::Mat image, float score_threshold, float nms_threshold)
+{
+    ncnn::Mat input;
+    preprocess(image, input);
+    auto ex = this->Net->create_extractor();
+
+    // SET LIGHT MODE HERE!
+    ex.set_light_mode(true);
+
+    ex.set_num_threads(2);
+```
+
+
+With NCNN:
+  * Make sure to set PATH: 
+  >
+  > export ncnn_DIR=YOUR_NCNN_PATH/build/install/lib/cmake/ncnn
+  >
+  > like:  export ncnn_DIR=/home/kugel/temp/m5/unitv2/ncnn/build_arm/install/lib/cmake/ncnn
+  > 
+  > cmake -DCMAKE_TOOLCHAIN_FILE=../armTools.cmake .. 
+  > 
+  
+
+**Other tools**
+
+MQTT works, both python (original installation) and c++ (new installation)

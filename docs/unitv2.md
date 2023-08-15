@@ -104,12 +104,12 @@ Restart wpa client
 We have some of the stuff explained below availabale for download. But read on, befor you grab it ...
 
 ## Compiled Buildroot binaries
-With cross development tools fro Linux x86_64 (Fedora 37) available at [OK Lab Cloud](https://cloud0.ok-lab-karlsruhe.de/index.php/s/b5ZizSMweZxsjPa)
+With cross development tools fro Linux x86_64 (Fedora 37) available at [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/s/FzaRmrF6D2qPKLo)
 
 
 ## Compiled target folder
 
-All libraries ready to copy to /media/sdcard/install available from [OK Lab Cloud](https://cloud0.ok-lab-karlsruhe.de/index.php/s/4zQpnSLpgHnP39H)
+All libraries ready to copy to /media/sdcard/install available from [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/s/6kWGXr7RdtXR8wi)
 
 
 

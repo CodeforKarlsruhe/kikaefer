@@ -1,0 +1,15 @@
+# unitv2 KIcam
+
+Host unitv2ip
+Hostname 10.254.239.1
+User m5stack
+PreferredAuthentications password
+PubkeyAuthentication no
+# default pw: 12345678
+
+Host unitv2ipr
+Hostname 10.254.239.1
+User root
+PreferredAuthentications password
+PubkeyAuthentication no
+# default pw: 7d219bec161177ba75689e71edc1835422b87be17bf92c3ff527b35052bf7d1f

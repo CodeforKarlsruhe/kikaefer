@@ -419,3 +419,8 @@ With NCNN:
 **Other tools**
 
 MQTT works, both python (original installation) and c++ (new installation)
+
+
+**Max Sittinger**
+
+https://github.com/maxsitt/insect-detect-docs/tree/main

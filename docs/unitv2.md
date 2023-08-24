@@ -424,3 +424,33 @@ MQTT works, both python (original installation) and c++ (new installation)
 **Max Sittinger**
 
 https://github.com/maxsitt/insect-detect-docs/tree/main
+
+
+## Video recording
+FFMPEG works out of the box. Make sure to place video onto the sdc-card at /media/sdcard
+
+Note that by default both sdcard and video are only fully usable by root, so start with 
+
+> 
+> sudo su
+>
+> cd /media/sdcard
+>
+
+```
+video only
+ffmpeg -f v4l2 -i /dev/video0 -c:v mpeg4 -s 640x480 output4.mp4
+
+
+with audio like:
+ffmpeg -f v4l2 -i /dev/video0  -f alsa -i default -c:v mpeg4 -s 640x480 -c:a aac -ar 44100 -ac 2 -b:a 192k output-x.mp4
+
+framerates: 
+  * 30fps @ 640x480
+  * 20fps @ 1280x720
+  * 9fps @ 1920x1080
+ 
+
+h264 and vp8 should be present, but don't work.
+
+```

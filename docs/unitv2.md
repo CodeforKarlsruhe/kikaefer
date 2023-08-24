@@ -454,3 +454,40 @@ framerates:
 h264 and vp8 should be present, but don't work.
 
 ```
+
+## Streaming video
+
+Use ffmpeg to stream to a local network port. Note: destination IP must be given!
+
+Assume, destination IP is 192.168.0.118
+
+>
+> ffmpeg -f v4l2 -i /dev/video0 -c:v mpeg4 -s 640x480 -f rtp rtp://192.168.0.118:8000 
+> 
+
+After starting, ffmpeg will print the SDP settings like: 
+
+```
+SDP:
+v=0
+o=- 0 0 IN IP4 127.0.0.1
+s=No Name
+c=IN IP4 192.168.0.118
+t=0 0
+a=tool:libavformat 58.29.100
+m=video 8000 RTP/AVP 96
+b=AS:200
+a=rtpmap:96 MP4V-ES/90000
+a=fmtp:96 profile-level-id=1
+
+```
+
+Copy everything after *SDP:* and save as file unitv2.sdp on receiver machine
+
+Use ffplay to receive stream. Note: machines must be in same netwerk and receiver firewall must pass port 8000 (or whatever selected). sdp descrription must be available
+
+>
+> ffplay -protocol_whitelist file,udp,rtp -i unitv2.sdp 
+>
+
+ 

@@ -199,6 +199,22 @@ tflite: Tensorflow lite from [https://github.com/tensorflow/tensorflow.git](http
 
 buildroot: version 2020.08.02 from [https://github.com/buildroot/buildroot](https://github.com/buildroot/buildroot), config for arm cortex-a7, gcc-10, opencv4 with dnn, openmp end other stuff.
 
+* [buildroot-2020.08.2.tar.bz2](https://buildroot.org/downloads/buildroot-2020.08.2.tar.bz2) from [archive](https://buildroot.org/downloads/)
+* cp packages over from oklab cloud tar (additionally contains opencv) `rsync --ignore-existing -ravp ../../buildroot-2020.08.2/package package/`
+* cp targetBr2020082/.config-with-imagemagic to config in new buildroot
+    * optionally check correct settings (arch) with `make menuconfig`
+    ```
+    Target Architecture (ARM (little endian))  ---> 
+    Target Binary Format (ELF)  --->                
+    Target Architecture Variant (cortex-A7)  --->   
+    Target ABI (EABIhf)  --->                       
+    Floating point strategy (NEON)  --->            
+    ARM instruction set (ARM)  --->         
+    ```
+    * if asked, unset vars before compiling
+
+* sources from https://github.com/m5stack/UnitV2Framework.git can be compiled with the resulting arm compiler
+
 *Newer versions not compatible with installed kernel! Need to find how to install complete new system, incl kernel. FSBL (first stage bootloader) instructions for SD-card are missing.*
 
 
@@ -490,4 +506,10 @@ Use ffplay to receive stream. Note: machines must be in same netwerk and receive
 > ffplay -protocol_whitelist file,udp,rtp -i unitv2.sdp 
 >
 
- 
+## Autostart 
+
+start scripts are located at /etc/init.d/
+* you can add your own
+* disable S85runpayload by renaming: `mv /etc/init.d/S85runpayload /etc/init.d/_S85runpayload`
+* start-stop-daemon 
+

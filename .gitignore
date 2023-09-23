@@ -1,5 +1,6 @@
 tmp/
 tmp.*
+reposexternal/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

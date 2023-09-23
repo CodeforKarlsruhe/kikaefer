@@ -103,8 +103,10 @@ Restart wpa client
 # Development
 We have some of the stuff explained below availabale for download. But read on, befor you grab it ...
 
+<!--
 ## Compiled Buildroot binaries
 With cross development tools fro Linux x86_64 (Fedora 37) available at [OK Lab Cloud](https://cloud.ok-lab-karlsruhe.de/s/FzaRmrF6D2qPKLo)
+-->
 
 
 ## Compiled target folder
@@ -221,6 +223,44 @@ buildroot: version 2020.08.02 from [https://github.com/buildroot/buildroot](http
   * creates arm cross-compiler and libraries. Probably, arm-compiled from Linux distro could be used as well ...
   * use together with sysroot for development
   * copy output to target
+
+#### Building buildroot
+
+**Get compiled target folder first! (see above)**
+
+Get package [2020.08.02](https://buildroot.org/downloads/buildroot-2020.08.2.tar.bz2)
+
+
+Extract files to buildroot-2020.08.2
+
+copy config file from /comnpiled target folder*/targetBr2020082/.config-with-imagemagic  to buildroot-2020.08.2/.config
+
+Enter buildroot-2020.08.2
+
+> make
+
+You will get errors in two places, one for *c-stack.c" the other for "libfakeroot.c"
+
+Copy the attached files to the proper locations like:
+
+> cp <modified>/libfakeroot.c <workdir>/buildroot-2020.08.2/output/build/host-fakeroot-1.20.2/
+
+> cp <modified>/c-stack.c <workdir>/buildroot-2020.08.2/output/build/host-m4-1.4.18/lib
+
+*Fix with patches to be made ...*
+
+Make again...
+
+Should compile, maybe error at the very end when trying to create a sysroot filesystem. Can be ignored.
+
+cross compiler is at <workdir>/buildroot-2020.08.2/output/host/bin/arm-buildroot-linux-gnueabihf-gcc etc.
+
+sysroot is at <workdir>/buildroot-2020.08.2/output/host/arm-buildroot-linux-gnueabihf/sysroot
+
+
+
+#### Using buildroot
+
 
 Example, assume buildroot is at ../buildroot-2020.08.2
 

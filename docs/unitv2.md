@@ -237,6 +237,20 @@ copy config file from *compiled target folder*/targetBr2020082/.config-with-imag
 
 copy all from *compiled target folder*/buildroot-2020.08.2/package  to *workdir*/buildroot-2020.08.2/package
 
+**Workaround to fix kernel version**
+edit .config and change header to 4.9.84
+
+> BR2_DEFAULT_KERNEL_HEADERS="4.9.84"
+
+edit package/linux-headers/Config.in.host and change default kernel to 4.9.84
+
+> default "4.9.84"	if BR2_KERNEL_HEADERS_4_9
+
+edit package/linux-headers/linux-headers.hash, add sha for 4.9.84
+
+> sha256  6cb86c89762ce8b75a51045d12d00a88040d0b6ab9dfbcafabfe8b127caf1bb7  linux-4.9.84.tar.xz
+
+
 unset LD_LIBRARY_PATH if it containt current dir
 
 Enter buildroot-2020.08.2

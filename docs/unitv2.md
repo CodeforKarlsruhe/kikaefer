@@ -255,6 +255,8 @@ Copy the files to the proper locations like:
 
 Make again...
 
+... this will take some minutes ...
+
 Should compile, maybe error at the very end when trying to create a sysroot filesystem. Can be ignored.
 
 cross compiler is at *workdir*/buildroot-2020.08.2/output/host/bin/arm-buildroot-linux-gnueabihf-gcc etc.

@@ -233,19 +233,23 @@ Get package [2020.08.02](https://buildroot.org/downloads/buildroot-2020.08.2.tar
 
 Extract files to buildroot-2020.08.2
 
-copy config file from /comnpiled target folder*/targetBr2020082/.config-with-imagemagic  to buildroot-2020.08.2/.config
+copy config file from *compiled target folder*/targetBr2020082/.config-with-imagemagic  to *workdir*/buildroot-2020.08.2/.config
+
+copy all from *compiled target folder*/buildroot-2020.08.2/package  to *workdir*/buildroot-2020.08.2/package
+
+unset LD_LIBRARY_PATH if it containt current dir
 
 Enter buildroot-2020.08.2
 
 > make
 
-You will get errors in two places, one for *c-stack.c" the other for "libfakeroot.c"
+You will get errors in two places, one for *c-stack.c* the other for *libfakeroot.c*
 
-Copy the attached files to the proper locations like:
+Copy the files to the proper locations like:
 
-> cp <modified>/libfakeroot.c <workdir>/buildroot-2020.08.2/output/build/host-fakeroot-1.20.2/
+> cp *modified*/libfakeroot.c ./output/build/host-fakeroot-1.20.2/
 
-> cp <modified>/c-stack.c <workdir>/buildroot-2020.08.2/output/build/host-m4-1.4.18/lib
+> cp *modified*/c-stack.c ./output/build/host-m4-1.4.18/lib
 
 *Fix with patches to be made ...*
 
@@ -253,9 +257,9 @@ Make again...
 
 Should compile, maybe error at the very end when trying to create a sysroot filesystem. Can be ignored.
 
-cross compiler is at <workdir>/buildroot-2020.08.2/output/host/bin/arm-buildroot-linux-gnueabihf-gcc etc.
+cross compiler is at *workdir*/buildroot-2020.08.2/output/host/bin/arm-buildroot-linux-gnueabihf-gcc etc.
 
-sysroot is at <workdir>/buildroot-2020.08.2/output/host/arm-buildroot-linux-gnueabihf/sysroot
+sysroot is at *workdir*/buildroot-2020.08.2/output/host/arm-buildroot-linux-gnueabihf/sysroot
 
 
 

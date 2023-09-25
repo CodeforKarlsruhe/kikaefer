@@ -202,6 +202,13 @@ tflite: Tensorflow lite from [https://github.com/tensorflow/tensorflow.git](http
 buildroot: version 2020.08.02 from [https://github.com/buildroot/buildroot](https://github.com/buildroot/buildroot), config for arm cortex-a7, gcc-10, opencv4 with dnn, openmp end other stuff.
 
 * [buildroot-2020.08.2.tar.bz2](https://buildroot.org/downloads/buildroot-2020.08.2.tar.bz2) from [archive](https://buildroot.org/downloads/)
+
+<!--
+https://buildroot.org/downloads/buildroot-2022.08.2.tar.gz
+
+-->
+
+
 * cp packages over from oklab cloud tar (additionally contains opencv) `rsync --ignore-existing -ravp ../../buildroot-2020.08.2/package package/`
 * cp targetBr2020082/.config-with-imagemagic to config in new buildroot
     * optionally check correct settings (arch) with `make menuconfig`

@@ -202,6 +202,13 @@ tflite: Tensorflow lite from [https://github.com/tensorflow/tensorflow.git](http
 buildroot: version 2020.08.02 from [https://github.com/buildroot/buildroot](https://github.com/buildroot/buildroot), config for arm cortex-a7, gcc-10, opencv4 with dnn, openmp end other stuff.
 
 * [buildroot-2020.08.2.tar.bz2](https://buildroot.org/downloads/buildroot-2020.08.2.tar.bz2) from [archive](https://buildroot.org/downloads/)
+
+<!--
+https://buildroot.org/downloads/buildroot-2022.08.2.tar.gz
+
+-->
+
+
 * cp packages over from oklab cloud tar (additionally contains opencv) `rsync --ignore-existing -ravp ../../buildroot-2020.08.2/package package/`
 * cp targetBr2020082/.config-with-imagemagic to config in new buildroot
     * optionally check correct settings (arch) with `make menuconfig`
@@ -265,29 +272,49 @@ Get package [2020.08.02](https://buildroot.org/downloads/buildroot-2020.08.2.tar
 
 Extract files to buildroot-2020.08.2
 
-copy config file from /comnpiled target folder*/targetBr2020082/.config-with-imagemagic  to buildroot-2020.08.2/.config
+copy config file from *compiled target folder*/targetBr2020082/.config-with-imagemagic  to *workdir*/buildroot-2020.08.2/.config
+
+copy all from *compiled target folder*/buildroot-2020.08.2/package  to *workdir*/buildroot-2020.08.2/package
+
+**Workaround to fix kernel version**
+edit .config and change header to 4.9.84
+
+> BR2_DEFAULT_KERNEL_HEADERS="4.9.84"
+
+edit package/linux-headers/Config.in.host and change default kernel to 4.9.84
+
+> default "4.9.84"	if BR2_KERNEL_HEADERS_4_9
+
+edit package/linux-headers/linux-headers.hash, add sha for 4.9.84
+
+> sha256  6cb86c89762ce8b75a51045d12d00a88040d0b6ab9dfbcafabfe8b127caf1bb7  linux-4.9.84.tar.xz
+
+
+unset LD_LIBRARY_PATH if it containt current dir
 
 Enter buildroot-2020.08.2
 
 > make
 
-You will get errors in two places, one for *c-stack.c" the other for "libfakeroot.c"
+You will get errors in two places, one for *c-stack.c* the other for *libfakeroot.c*
 
-Copy the attached files to the proper locations like:
+Copy the files to the proper locations like:
 
-> cp <modified>/libfakeroot.c <workdir>/buildroot-2020.08.2/output/build/host-fakeroot-1.20.2/
+> cp *modified*/libfakeroot.c ./output/build/host-fakeroot-1.20.2/
 
-> cp <modified>/c-stack.c <workdir>/buildroot-2020.08.2/output/build/host-m4-1.4.18/lib
+> cp *modified*/c-stack.c ./output/build/host-m4-1.4.18/lib
 
 *Fix with patches to be made ...*
 
 Make again...
 
+... this will take some minutes ...
+
 Should compile, maybe error at the very end when trying to create a sysroot filesystem. Can be ignored.
 
-cross compiler is at <workdir>/buildroot-2020.08.2/output/host/bin/arm-buildroot-linux-gnueabihf-gcc etc.
+cross compiler is at *workdir*/buildroot-2020.08.2/output/host/bin/arm-buildroot-linux-gnueabihf-gcc etc.
 
-sysroot is at <workdir>/buildroot-2020.08.2/output/host/arm-buildroot-linux-gnueabihf/sysroot
+sysroot is at *workdir*/buildroot-2020.08.2/output/host/arm-buildroot-linux-gnueabihf/sysroot
 
 
 

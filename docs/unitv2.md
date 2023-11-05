@@ -214,6 +214,38 @@ buildroot: version 2020.08.02 from [https://github.com/buildroot/buildroot](http
     ARM instruction set (ARM)  --->         
     ```
     * if asked, unset vars before compiling
+        ```
+        unset LD_LIBRARY_PATH
+        unset PERL_MM_OPT
+        ```
+Error handling patches:
+
+```
+In file included from /usr/include/signal.h:328,
+                 from ./signal.h:52,
+                 from c-stack.c:49:
+c-stack.c:55:26: error: missing binary operator before token "("
+   55 | #elif HAVE_LIBSIGSEGV && SIGSTKSZ < 16384
+       |                          ^~~~~~~~
+```
+
+patch ./output/build/host-m4-1.4.18/lib/c-stack.c $repolocation/kikaefer/docs/modified/c-stack.c.patch
+make
+```
+
+```
+In file included from communicate.h:20,
+                 from libfakeroot.c:60:
+libfakeroot.c: In function ‘chown’:
+libfakeroot.c:99:40: error: ‘_STAT_VER’ undeclared (first use in this function)
+[...]
+```
+
+```
+patch ./output/build/host-fakeroot-1.20.2/libfakeroot.c $repolocation/kikaefer/docs/modified/libfakeroot.c.patch
+make
+```
+
 
 * sources from https://github.com/m5stack/UnitV2Framework.git can be compiled with the resulting arm compiler
 
